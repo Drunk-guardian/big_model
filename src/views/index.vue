@@ -38,10 +38,10 @@ function sendMsg() {
   left: 0;
 }
 .content {
-  background-color: green;
-  color: white;
+  background-color: #f5f5f5;
+  color: black;
   flex: 1;
-  overflow-y: auto; /* 如果内容太多可以滚动 */
+  overflow: auto; /* 如果内容太多可以滚动 */
 }
 
 .result-display {
