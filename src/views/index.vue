@@ -90,6 +90,7 @@ function sendMsg() {
     console.dir(response)
     // 将结果清空
     result.value = ''
+    think.value = ''
     msg.value = ''
     // 流式输出返回的是一个长字符串，我们先按照两个回车将字符串截断为数组
     const array = response.data.split('\n\n')
@@ -137,13 +138,17 @@ function sendMsg() {
 }
 
 .msg-box {
-  width: fit-content; /* 宽度适应内容 */
   background-color: rgb(13, 13, 240);
   color: white;
-  margin-bottom: 20px;
+  margin: 0; /* 重置所有margin */
+  padding: 8px 12px; /* 合适的内边距 */
   border-radius: 5px;
-  float: right; /* 右浮动实现右对齐 */
-  max-width: 50%; /* 限制最大宽度 */
+  max-width: 50%;
+  white-space: pre-wrap; /* 保持换行 */
+  word-wrap: break-word; /* 长单词换行 */
+  float: right; /* 右浮动 */
+  clear: both; /* 清除浮动 */
+  margin-bottom: 20px; /* 只保留底部间距 */
 }
 
 .content {
@@ -154,17 +159,8 @@ function sendMsg() {
   padding: 20px; /* 添加内边距 */
 }
 
-.result-display {
-  max-width: 100%; /* 限制最大宽度 */
-  overflow-wrap: break-word; /* 强制长单词换行 */
-  word-break: break-word; /* 在任意字符间换行 */
-  white-space: pre-wrap; /* 保留换行和空格，但允许换行 */
-  hyphens: auto; /* 自动添加连字符 */
-}
-
 .result-display pre {
   padding: 0;
-  font-family: inherit; /* 使用系统字体而不是等宽字体 */
   white-space: pre-wrap; /* 保留格式但允许换行 */
   word-wrap: break-word; /* 长单词强制换行 */
   overflow-wrap: break-word; /* 现代浏览器的强制换行 */
